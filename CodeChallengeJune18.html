@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+
+var parents = {
+    'Henry': {'childName': 'Calvin', 'age': 1},
+    'Ada': {'childName': 'Lily', 'age': 4},
+    'Emilia': {'childName': 'Petra', 'age': 2},
+    'Biff': {'childName': 'Biff Jr', 'age': 3},
+    'Milo': {}
+}
+
+var activities = [
+    {
+        'age': 1,
+        'activity': [
+            'Go outside and feel surfaces.',
+            'Try singing a song together.',
+            'Point and name objects.'
+            ]
+    },
+    {
+        'age': 2,
+        'activity': [
+            'Draw with crayons.',
+            'Play with soundmaking toys or instruments.',
+            'Look at family pictures together.'
+            ]
+    },
+    {
+        'age': 3,
+        'activity': [
+            'Build with blocks.',
+            'Try a simple puzzle.',
+            'Read a story together.'
+            ]
+    }
+]
+
+var i; 
+
+for(i=0; i<2; i++) {
+	document.getElementById("demo").innerHTML += parents.Henry["childName"] + "<br>";
+	document.getElementById("demo").innerHTML += activities[0].age + "<br><br>";
+}
+
+</script>
+
+</body>
+</html>
