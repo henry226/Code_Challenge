@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <body>
+<h2>Parents:</h2>
+<p id="parents"></p>
 
-<p id="demo"></p>
+<h2>Activities</h2>
+<p id="activities"></p>
 
 <script>
 
@@ -41,9 +44,9 @@ var activities = [
     }
 ]
 
+/*
 var i; 
-
-/*for(i=0; i<2; i++) {
+for(i=0; i<2; i++) {
 	document.getElementById("demo").innerHTML += parents.Henry["childName"] + "<br>";
 	document.getElementById("demo").innerHTML += activities[i].age + "<br><br>";
 }
@@ -51,16 +54,33 @@ var i;
 var l = activities[1].activity.length;
 console.log(l);*/
 
-for (var key in parents) {
-    console.log(key + ":")
-    document.getElementById("demo").innerHTML += key + ":" + "<br>";
+// first loop through all objects in parents
+for (var p in parents) {
+    // Output Parents Names
+    document.getElementById("parents").innerHTML += p + ":" + "<br>";
 
-    var obj = parents[key];
-    for(var prop in obj){
-        console.log(prop + " = " + obj[prop]);
-        document.getElementById("demo").innerHTML += prop + " = " + obj[prop] + "<br>";
+    // Output Parents Info
+    var p_obj = parents[p];
+    for(var prop in p_obj){
+        document.getElementById("parents").innerHTML += prop + " = " + p_obj[prop] + "<br>";
     }
 }
+
+// Second loop through all objects in activities
+var i, j;
+for(i=0; i<activities.length; i++){
+    // Output Children's age
+    document.getElementById("activities").innerHTML += "Children's age: " + activities[i].age + "<br>";
+    
+    // Store children's activities and clear up each loop
+    var x = "";
+    for(j in activities[i].activity) {
+        x += activities[i].activity[j] + " ";
+    }
+    // Output children's activities in age
+    document.getElementById("activities").innerHTML += "Children's activities: " + x + "<br>";
+}
+
 </script>
 
 </body>
