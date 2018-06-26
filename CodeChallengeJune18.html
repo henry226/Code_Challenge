@@ -43,11 +43,24 @@ var activities = [
 
 var i; 
 
-for(i=0; i<2; i++) {
+/*for(i=0; i<2; i++) {
 	document.getElementById("demo").innerHTML += parents.Henry["childName"] + "<br>";
-	document.getElementById("demo").innerHTML += activities[0].age + "<br><br>";
+	document.getElementById("demo").innerHTML += activities[i].age + "<br><br>";
 }
 
+var l = activities[1].activity.length;
+console.log(l);*/
+
+for (var key in parents) {
+    console.log(key + ":")
+    document.getElementById("demo").innerHTML += key + ":" + "<br>";
+
+    var obj = parents[key];
+    for(var prop in obj){
+        console.log(prop + " = " + obj[prop]);
+        document.getElementById("demo").innerHTML += prop + " = " + obj[prop] + "<br>";
+    }
+}
 </script>
 
 </body>
