@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 <body>
+
+<p>Enter Parent's Name: <input type="text" id="parent_name"></p>
+<p>Enter Child's Name:  <input type="text" id="child_name"></p>
+<p>Enter Child's Name:  <input type="text" id="child_age"></p>
+<button onclick="myFunction()">Submit</button>
+
+<h2>Input Test</h2>
+<p id ="input"></p>
+
 <h2>Parents:</h2>
 <p id="parents"></p>
 
@@ -44,7 +53,13 @@ var activities = [
     }
 ]
 
-/*
+
+
+/** Add tested cases
+activities[0].activity.push("hello");
+parents["Peter"] = {'childName': 'Dick', 'age': 5};**/
+
+/**************************************************************************************
 var i; 
 for(i=0; i<2; i++) {
 	document.getElementById("demo").innerHTML += parents.Henry["childName"] + "<br>";
@@ -52,7 +67,17 @@ for(i=0; i<2; i++) {
 }
 
 var l = activities[1].activity.length;
-console.log(l);*/
+console.log(l);
+***************************************************************************************/
+
+function myFunction() {
+    var parent_name = document.getElementById("parent_name").value;
+    var child_name = document.getElementById("child_name").value;
+    var child_age = document.getElementById("child_age").value;
+
+    document.getElementById("input").innerHTML += parent_name + " " + child_name + " " + child_age + "<br>";
+}
+
 
 // first loop through all objects in parents
 for (var p in parents) {
@@ -61,14 +86,14 @@ for (var p in parents) {
 
     // Output Parents Info
     var p_obj = parents[p];
-    for(var prop in p_obj){
+    for(var prop in p_obj) {
         document.getElementById("parents").innerHTML += prop + " = " + p_obj[prop] + "<br>";
     }
 }
 
 // Second loop through all objects in activities
 var i, j;
-for(i=0; i<activities.length; i++){
+for(i=0; i<activities.length; i++) {
     // Output Children's age
     document.getElementById("activities").innerHTML += "Children's age: " + activities[i].age + "<br>";
     
@@ -80,6 +105,7 @@ for(i=0; i<activities.length; i++){
     // Output children's activities in age
     document.getElementById("activities").innerHTML += "Children's activities: " + x + "<br>";
 }
+
 
 </script>
 
