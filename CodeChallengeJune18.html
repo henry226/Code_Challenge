@@ -4,11 +4,8 @@
 
 <p>Enter Parent's Name: <input type="text" id="parent_name"></p>
 <p>Enter Child's Name:  <input type="text" id="child_name"></p>
-<p>Enter Child's Name:  <input type="text" id="child_age"></p>
+<p>Enter Child's Age:  <input type="number" id="child_age"></p>
 <button onclick="myFunction()">Submit</button>
-
-<h2>Input Test</h2>
-<p id ="input"></p>
 
 <h2>Parents:</h2>
 <p id="parents"></p>
@@ -53,9 +50,9 @@ var activities = [
     }
 ]
 
-
-
-/** Add tested cases
+/**Add tested cases
+var myobj = ['Build with blocks.'];
+activities[1].activity.push(myobj);
 activities[0].activity.push("hello");
 parents["Peter"] = {'childName': 'Dick', 'age': 5};**/
 
@@ -70,25 +67,39 @@ var l = activities[1].activity.length;
 console.log(l);
 ***************************************************************************************/
 
+var p_str = "";
 function myFunction() {
+
+    // Stored the input values
     var parent_name = document.getElementById("parent_name").value;
     var child_name = document.getElementById("child_name").value;
     var child_age = document.getElementById("child_age").value;
 
-    document.getElementById("input").innerHTML += parent_name + " " + child_name + " " + child_age + "<br>";
-}
+    console.log("parent_name: " + parent_name);
+    console.log("child_name: " + child_name);
+    console.log("child_age: " + child_age);
 
+    //Added the input value
+    if(parent_name)
+        parents[parent_name] = {};
+    if(child_name)
+        parents[parent_name] = {'childName': child_name};
+    if(child_age)
+        parents[parent_name] = {'childName': child_name, 'age': child_age};
 
-// first loop through all objects in parents
-for (var p in parents) {
-    // Output Parents Names
-    document.getElementById("parents").innerHTML += p + ":" + "<br>";
-
-    // Output Parents Info
-    var p_obj = parents[p];
-    for(var prop in p_obj) {
-        document.getElementById("parents").innerHTML += prop + " = " + p_obj[prop] + "<br>";
+    // Loop through all data and stored in p_str
+    for (var p in parents) {
+        p_str += p + ":" + "<br>";
+        var p_obj = parents[p];
+        for(var prop in p_obj) {
+            p_str += prop + " = " + p_obj[prop] + "<br>";
+        }
     }
+
+    //Outputs
+    document.getElementById("parents").innerHTML = p_str;
+    // Clean up p_str
+    p_str = "";
 }
 
 // Second loop through all objects in activities
@@ -105,6 +116,7 @@ for(i=0; i<activities.length; i++) {
     // Output children's activities in age
     document.getElementById("activities").innerHTML += "Children's activities: " + x + "<br>";
 }
+
 
 
 </script>
