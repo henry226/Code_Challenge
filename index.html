@@ -1,24 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Code Challenge</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="CodeChallengeJune18.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<style>
+input {
+    margin-bottom: 15px;
+}
+h2 {
+    margin-top: 15px;
+}
+p {
+    font-size: 18px;
+}
+</style>
 </head>
+
 <body>
+<div class="container">
+    <div class="row">
+    <div class="col-md-6 col-sm-12 text-center">
+        <h2>Enter Parent Information:</h2>
+        <p>Parent's Name:</p> <input type="text" id="parent_name">
+        <p>Child's Name:</p>  <input type="text" id="child_name">
+        <p>Child's Age:</p>  <input type="number" id="child_age">
 
-<h2>Enter Parent Information:</h2>
-<p>Parent's Name: <input type="text" id="parent_name"></p>
-<p>Child's Name:  <input type="text" id="child_name"></p>
-<p>Child's Age:  <input type="number" id="child_age"></p>
+        <h2>Enter Activities:</h2>
+        <p>Age:</p><input type="number" id="age">
+        <p>Activities:</p> <input type="text" id="activity">
+        <br><br>
+        <button type="button" class="btn btn-dark btn-md" onclick="myFunction()">Submit</button>
+    </div>
 
-<h2>Enter Activities:</h2>
-<p>Age: <input type="number" id="age"></p>
-<p>Activities: <input type="text" id="activity"></p>
-
-<button onclick="myFunction()">Submit</button>
-
-<h2>Result:</h2>
-<p id="result"></p>
+    <div class="col-md-6 col-sm-12">
+        <h2>Result:</h2>
+        <p id="result"></p>
+    </div>
+    </div>
+</div>
 
 </body>
 </html>

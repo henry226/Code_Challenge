@@ -52,7 +52,7 @@ var activities = [
 #   all parents have recieved all their activities.
 ******************************************************************************/
 
-var str = "";
+var str = "<p>";
 function myFunction() {
 
     // Stored parents input values
@@ -85,25 +85,25 @@ function myFunction() {
     
     // Loop through all data and stored in str
     for (var p in parents) {
-        str += "Parent's Name: " + p + "<br>";
+        str += "Parent's Name: <b>" + p + "</b><br>";
         var p_obj = parents[p];
         // Check if the object of the parent is empty
         if(jQuery.isEmptyObject(p_obj))
-            str += "Missing Child Info!<br><br>";
+            str += "<span style='color:red; font-weight:bold;'>Missing child's information!</span><br><br>";
         // Output parent's child info
         else {
             for(var prop in p_obj) {
                 if(prop == "age"){
-                    str += "Age: " + p_obj[prop] + "<br>";
+                    str += "Age: <b>" + p_obj[prop] + "</b><br><b>The activities for this age:</b><br>";
                     ageCheck(p_obj[prop]);
                 }
                 else if (prop == "childName") 
-                    str += "Child: " + p_obj[prop] + "<br>";
+                    str += "Child's Name: <b>" + p_obj[prop] + "</b><br>";
             }
         }
     }
     //Output the result
-    document.getElementById("result").innerHTML = str + "Curriculum complete!<br>";
+    document.getElementById("result").innerHTML = str + "</p><h2>Curriculum complete!</h2><br>";
 
     //Clean up str
     str= "";
@@ -128,5 +128,5 @@ function ageCheck(age) {
     }
     //If child's age is not matched to all activities ages, output error message
     if(counter == 0)
-        str += "Can't find activity info in this age!" + "<br><br>";
+        str += "<span style='color:red; font-weight:bold;'>Can't find activities in this age!</span>" + "<br><br>";
 }
