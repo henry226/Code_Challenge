@@ -89,7 +89,7 @@ function myFunction() {
         var p_obj = parents[p];
         // Check if the object of the parent is empty
         if(jQuery.isEmptyObject(p_obj))
-            str += "<span style='color:red; font-weight:bold;'>Missing child's information!</span><br><br>";
+            str += "<span style='color:red; font-weight:bold;'>Missing child's information!</span><hr>";
         // Output parent's child info
         else {
             for(var prop in p_obj) {
@@ -121,12 +121,14 @@ function ageCheck(age) {
                 x += "Activity " + k + ": " + activities[i].activity[j] + "<br> ";
             }
             // stored children's activities in str
-            str += x + "<br>";
+            str += x;
             counter++;
             break;
         } 
     }
     //If child's age is not matched to all activities ages, output error message
     if(counter == 0)
-        str += "<span style='color:red; font-weight:bold;'>Can't find activities in this age!</span>" + "<br><br>";
+        str += "<span style='color:red; font-weight:bold;'>Can't find activities in this age!</span>";
+    
+    str += "<hr>"
 }
