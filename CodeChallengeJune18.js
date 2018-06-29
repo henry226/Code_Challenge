@@ -60,7 +60,7 @@ function myFunction() {
     var child_name = document.getElementById("child_name").value;
     var child_age = document.getElementById("child_age").value;
 
-    // Stored age input value 
+    // Stored Activities input value 
     var a_age = document.getElementById("age").value;
     var a_activity = document.getElementById("activity").value;
 
@@ -72,7 +72,7 @@ function myFunction() {
     if(child_age)
         parents[parent_name] = {'childName': child_name, 'age': child_age};
 
-    //Added activities input value
+    //Added activities input values
     if(a_age > 3 && a_activity) {
         let new_activity = {
             'age': a_age,
@@ -80,18 +80,16 @@ function myFunction() {
         };
         activities.push(new_activity);
     }
-    else if(a_age <= 3 && a_activity) {
+    else if(a_age <= 3 && a_activity)
         activities[a_age-1].activity.push(a_activity);
-    }
     
     // Loop through all data and stored in str
     for (var p in parents) {
         str += "Parent's Name: " + p + "<br>";
         var p_obj = parents[p];
         // Check if the object of the parent is empty
-        if(jQuery.isEmptyObject(p_obj)){
+        if(jQuery.isEmptyObject(p_obj))
             str += "Missing Child Info!<br><br>";
-        }
         // Output parent's child info
         else {
             for(var prop in p_obj) {
@@ -99,9 +97,8 @@ function myFunction() {
                     str += "Age: " + p_obj[prop] + "<br>";
                     ageCheck(p_obj[prop]);
                 }
-                else if (prop == "childName") {
+                else if (prop == "childName") 
                     str += "Child: " + p_obj[prop] + "<br>";
-                }
             }
         }
     }
@@ -130,7 +127,6 @@ function ageCheck(age) {
         } 
     }
     //If child's age is not matched to all activities ages, output error message
-    if(counter == 0){
-        str += "Can't Find Info!" + "<br><br>";
-    }
+    if(counter == 0)
+        str += "Can't find activity info in this age!" + "<br><br>";
 }
