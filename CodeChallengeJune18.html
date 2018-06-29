@@ -1,166 +1,24 @@
 <!DOCTYPE html>
 <html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="main.js"></script>
+</head>
 <body>
 
 <h2>Enter Parent Information:</h2>
-<p>Enter Parent's Name: <input type="text" id="parent_name"></p>
-<p>Enter Child's Name:  <input type="text" id="child_name"></p>
-<p>Enter Child's Age:  <input type="number" id="child_age"></p>
+<p>Parent's Name: <input type="text" id="parent_name"></p>
+<p>Child's Name:  <input type="text" id="child_name"></p>
+<p>Child's Age:  <input type="number" id="child_age"></p>
 
 <h2>Enter Activities:</h2>
-<p>Enter Age: <input type="number" id="age"></p>
-<p>Enter Activities: <input type="text" id="activity"></p>
+<p>Age: <input type="number" id="age"></p>
+<p>Activities: <input type="text" id="activity"></p>
 
 <button onclick="myFunction()">Submit</button>
 
-
-<h2>Parents:</h2>
-<p id="parents"></p>
-
-<h2>Activities</h2>
-<p id="activities"></p>
-
-<script>
-
-var parents = {
-    'Henry': {'childName': 'Calvin', 'age': 1},
-    'Ada': {'childName': 'Lily', 'age': 4},
-    'Emilia': {'childName': 'Petra', 'age': 2},
-    'Biff': {'childName': 'Biff Jr', 'age': 3},
-    'Milo': {}
-}
-
-var activities = [
-    {
-        'age': 1,
-        'activity': [
-            'Go outside and feel surfaces.',
-            'Try singing a song together.',
-            'Point and name objects.'
-            ]
-    },
-    {
-        'age': 2,
-        'activity': [
-            'Draw with crayons.',
-            'Play with soundmaking toys or instruments.',
-            'Look at family pictures together.'
-            ]
-    },
-    {
-        'age': 3,
-        'activity': [
-            'Build with blocks.',
-            'Try a simple puzzle.',
-            'Read a story together.'
-            ]
-    }
-]
-var myob = {
-    'age': 1,
-    'activity': [
-        'Go outside and feel surfaces.',
-        'Try singing a song together.',
-        'Point and name objects.'
-        ]
-};
-//activities.push(myob);
-/**Add tested cases
-var myobj = ['Build with blocks.'];
-activities[1].activity.push(myobj);
-activities[0].activity.push("hello");
-parents["Peter"] = {'childName': 'Dick', 'age': 5};**/
-
-/**************************************************************************************
-var i; 
-for(i=0; i<2; i++) {
-	document.getElementById("demo").innerHTML += parents.Henry["childName"] + "<br>";
-	document.getElementById("demo").innerHTML += activities[i].age + "<br><br>";
-}
-
-var l = activities[1].activity.length;
-console.log(l);
-***************************************************************************************/
-
-var p_str = "", a_str = "";
-function myFunction() {
-
-    // Stored parents input values
-    var parent_name = document.getElementById("parent_name").value;
-    var child_name = document.getElementById("child_name").value;
-    var child_age = document.getElementById("child_age").value;
-
-    console.log("parent_name: " + parent_name);
-    console.log("child_name: " + child_name);
-    console.log("child_age: " + child_age);
-
-    //Added the input value
-    if(parent_name)
-        parents[parent_name] = {};
-    if(child_name)
-        parents[parent_name] = {'childName': child_name};
-    if(child_age)
-        parents[parent_name] = {'childName': child_name, 'age': child_age};
-
-    // Loop through all data and stored in p_str
-    for (var p in parents) {
-        p_str += p + ":" + "<br>";
-        var p_obj = parents[p];
-        for(var prop in p_obj) {
-            p_str += prop + " = " + p_obj[prop] + "<br>";
-        }
-    }
-
-    //Outputs
-    document.getElementById("parents").innerHTML = p_str;
-    
-    // Clean up p_str
-    p_str = "";
-
-    /*** Stored age input value ---------------------------------------------------------------------------- **/
-    var a_age = document.getElementById("age").value;
-    var a_activity = document.getElementById("activity").value;
-
-    console.log("Age: " + a_age);
-    console.log("Activity: " + a_activity);
-
-    //Added the input value
-    if(a_age > 3 && a_activity) {
-        let new_activity = {
-            'age': a_age,
-            'activity': [a_activity]
-        };
-        activities.push(new_activity);
-    }
-    else if(a_age <= 3 && a_activity) {
-        activities[a_age-1].activity.push(a_activity);
-    }
-
-    // Second loop through all objects in activities
-    var i, j;
-    for(i=0; i<activities.length; i++) {
-        // Output Children's age
-        a_str += "Age: " + activities[i].age + "<br>";
-
-        // Store children's activities and clear up each loop
-        var x = "";
-        for(j in activities[i].activity) {
-            let k = Number(j)+1;
-            x += "Activity " + k + ": " + activities[i].activity[j] + "<br> ";
-        }
-
-        // Output children's activities in age
-        a_str += x + "<br>";
-    }
-
-    //Outputs
-    document.getElementById("activities").innerHTML = a_str;
-    
-    // Clean up p_str
-    a_str = "";
-}
-
-</script>
+<h2>Result:</h2>
+<p id="result"></p>
 
 </body>
 </html>
